@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyNewsFeed</string>
+    <string name="news_feed_list_title">News</string>
+</resources>
