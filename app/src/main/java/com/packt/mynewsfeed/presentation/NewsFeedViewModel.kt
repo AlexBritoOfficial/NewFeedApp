@@ -34,13 +34,4 @@ class NewsFeedViewModel @Inject constructor(private val newsFeedRepository: News
         }
     }
 
-//    companion object{
-//        val Factory : ViewModelProvider.Factory = viewModelFactory {
-//            initializer {
-//                val application = (this[APPLICATION_KEY] as NewsFeedApplication)
-//                val viewModel: NewsFeedViewModel = ViewModelProvider(application).get(NewsFeedViewModel::class.java)
-//                viewModel
-//            }
-//        }
-//    }
 }

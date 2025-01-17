@@ -15,7 +15,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
+object NetwohmrkModule {
 
     private val BASE_URL = "https://newsdata.io/api/1/"
 

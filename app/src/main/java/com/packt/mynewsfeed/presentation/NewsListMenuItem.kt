@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,47 +25,32 @@ fun NewsListMenuItem(result: Result) {
         verticalAlignment = Alignment.CenterVertically
     ) {
 
-        /** Spacer **/
-        /** Spacer **/
-        Spacer(modifier = Modifier.width(8.dp))
-
         /** Column **/
 
-        /** Column **/
-        Row() {
 
-            /** Avatar **/
-            /** Avatar **/
-            /** Avatar **/
-
-            /** Avatar **/
-            Avatar(
-                imageUrl = result.image_url,
-                size = 50.dp,
-                contentDescription = "${result.title}'s avatar"
+        ElevatedCard(
+            modifier = Modifier.fillMaxWidth(),
+            elevation = CardDefaults.cardElevation(
+                defaultElevation = 8.dp
             )
+        ) {
+            Row {
+                Avatar(
+                    imageUrl = result.image_url,
+                    size = 50.dp,
+                    contentDescription = "${result.title}'s avatar"
+                )
 
-            /** Conversation Name**/
+                Text(
+                    text = result.title,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.fillMaxWidth(0.7f)
+                )
 
-            /** Conversation Name**/
+                Text(text = result.content)
+            }
 
-            /** Conversation Name**/
-
-            /** Conversation Name**/
-            Text(
-                text = result.title,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.fillMaxWidth(0.7f)
-            )
-
-            /** Conversation Maessage **/
-
-            /** Conversation Maessage **/
-
-            /** Conversation Maessage **/
-
-            /** Conversation Maessage **/
-            Text(text = result.content)
         }
+
     }
 }

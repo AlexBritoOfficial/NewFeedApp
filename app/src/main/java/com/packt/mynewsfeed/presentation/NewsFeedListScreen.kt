@@ -21,10 +21,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.packt.mynewsfeed.R
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
@@ -59,10 +63,15 @@ fun NewsFeedListScreen(
     var isLanguagesDropDownExpanded by remember { mutableStateOf(false) }
     var languageSelected by remember { mutableStateOf(languages[0]) }
 
-    Scaffold(
+    Scaffold(containerColor = Color.White,
         topBar = {
-            TopAppBar(title = { Text(stringResource(R.string.news_feed_list_title)) })
+            TopAppBar(title = { Text(stringResource(R.string.news_feed_list_title)) },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color.Red,
+                    titleContentColor = Color.White,
+                ))
         },
+
         content = { innerPadding ->
             Column(modifier = Modifier.padding(innerPadding)) {
                 NewsFeedList(viewModel = viewModel, onNewsFeedItemClicked = onNewsFeedListItemClicked)
