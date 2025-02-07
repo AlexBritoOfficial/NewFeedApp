@@ -5,7 +5,7 @@ plugins {
     id("com.google.dagger.hilt.android")
     id ("kotlin-kapt")
     id ("kotlin-parcelize")
-
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -45,6 +45,8 @@ android {
 
 dependencies {
 
+    testImplementation(project(":app"))
+
     val jUnitVersion = "4.13.2"
     val mockitoVersion = "5.6.0"
     val mockitoKotlinVersion = "5.4.0"
@@ -69,8 +71,6 @@ dependencies {
     // https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
-
-    //
     implementation(libs.gson)
 
 
@@ -94,7 +94,9 @@ dependencies {
     // Mockito
     testImplementation("org.mockito:mockito-core:$mockitoVersion")
     testImplementation("org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion")
-    testImplementation("com.squareup.retrofit2:retrofit-mock:2.11.0")
-    testImplementation(project(":app"))
+
+    // Hilt Testing
+    testImplementation("com.google.dagger:hilt-android-testing:2.54") // Hilt testing support
+    kaptTest("com.google.dagger:hilt-compiler:2.54")
 
 }

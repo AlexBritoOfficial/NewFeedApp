@@ -16,7 +16,7 @@ import javax.inject.Inject
  *
  * ***/
 
-class NetworkNewsFeedRepository @Inject constructor(private val newsFeedApi: NewsFeedApiService): NewsFeedRepository {
+class NetworkNewsFeedRepository @Inject constructor(val newsFeedApi: NewsFeedApiService): NewsFeedRepository {
 
     override suspend fun getLatestNews(): LatestNews? =  newsFeedApi.getLatestNews().body()
 }
