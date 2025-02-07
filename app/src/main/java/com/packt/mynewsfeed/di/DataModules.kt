@@ -2,7 +2,7 @@ package com.packt.mynewsfeed.di
 
 import com.packt.mynewsfeed.data.NetworkNewsFeedRepository
 import com.packt.mynewsfeed.data.NewsFeedRepository
-import com.packt.mynewsfeed.network.NewsFeedApiService
+import com.packt.mynewsfeed.data.network.NewsFeedApiService
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -15,10 +15,9 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetwohmrkModule {
+object NetworkModule {
 
     private val BASE_URL = "https://newsdata.io/api/1/"
-
 
     @Provides
     @Singleton
@@ -43,6 +42,5 @@ object NetwohmrkModule {
 abstract class RepositoryModule {
 
     @Binds
-    abstract fun bindNewsFeedRepository(networkNewsFeedRepositoryImpl: NetworkNewsFeedRepository
-    ): NewsFeedRepository
+    abstract fun bindNewsFeedRepository(networkNewsFeedRepositoryImpl: NetworkNewsFeedRepository): NewsFeedRepository
 }

@@ -45,6 +45,10 @@ android {
 
 dependencies {
 
+    val jUnitVersion = "4.13.2"
+    val mockitoVersion = "5.6.0"
+    val mockitoKotlinVersion = "5.4.0"
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -84,5 +88,13 @@ dependencies {
     kapt ("com.google.dagger:hilt-compiler:2.54")
     implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
 
+    // JUnit
+    testImplementation("junit:junit:$jUnitVersion")
+
+    // Mockito
+    testImplementation("org.mockito:mockito-core:$mockitoVersion")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion")
+    testImplementation("com.squareup.retrofit2:retrofit-mock:2.11.0")
+    testImplementation(project(":app"))
 
 }

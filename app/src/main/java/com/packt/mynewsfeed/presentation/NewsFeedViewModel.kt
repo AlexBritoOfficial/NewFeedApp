@@ -19,8 +19,8 @@ import javax.inject.Inject
 @HiltViewModel
 class NewsFeedViewModel @Inject constructor(private val newsFeedRepository: NewsFeedRepository): ViewModel() {
 
-    private var _latestNewsFeed = MutableStateFlow<LatestNews>(LatestNews("", emptyList(),"",0))
-    val latestNews: StateFlow<LatestNews> = _latestNewsFeed.asStateFlow()
+    private var _latestNewsFeed = MutableStateFlow<LatestNews?>(LatestNews("", emptyList(),"",0))
+    val latestNews: StateFlow<LatestNews?> = _latestNewsFeed.asStateFlow()
 
 
     init {
@@ -30,7 +30,7 @@ class NewsFeedViewModel @Inject constructor(private val newsFeedRepository: News
      fun fetchLatestNews(){
         viewModelScope.launch{
             val response = newsFeedRepository.getLatestNews()
-            _latestNewsFeed.value = response.body()!!
+            _latestNewsFeed.value = response
         }
     }
 
